@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Iluteenuste broneeringute ülevaade">
+  <title>Broneeringud | IluStuudio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <nav class="nav" aria-label="Peamenüü">
+      <a class="brand" href="#">Ilu<span>Stuudio</span></a>
+      <span class="nav-badge">Broneeringute haldus</span>
+    </nav>
+    <div class="hero-content">
+      <p class="eyebrow">Tänane ülevaade</p>
+      <h1>Sinu päev, kaunilt korraldatud.</h1>
+      <p class="intro">Kõik kliendid ja hoolitsused mugavalt ühes kohas.</p>
+      <div class="live-pill"><i></i> Andmed uuenevad reaalajas</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="stats" aria-label="Statistika">
+      <article><div class="stat-icon">✦</div><div><span id="bookingCount">—</span><p>broneeringut</p></div></article>
+      <article><div class="stat-icon">♡</div><div><span id="clientCount">—</span><p>klienti</p></div></article>
+      <article><div class="stat-icon">◌</div><div><span id="serviceCount">—</span><p>teenust</p></div></article>
+    </section>
+
+    <section class="booking-card">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Ajakava · <span id="resultCount">0 tulemust</span></p>
+          <h2>Broneeringud</h2>
+        </div>
+        <button id="refreshButton" class="refresh" type="button" aria-label="Värskenda andmeid">↻ Värskenda</button>
+      </div>
+
+      <div class="filters">
+        <label class="search-field">
+          <span class="sr-only">Otsi klienti</span>
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="Otsi klienti...">
+        </label>
+        <label>
+          <span class="sr-only">Filtreeri teenuse järgi</span>
+          <select id="serviceFilter">
+            <option value="">Kõik teenused</option>
+            <option value="Juuksur">Juuksur</option>
+            <option value="Massaaž">Massaaž</option>
+            <option value="Spa">Spa</option>
+            <option value="Kosmeetika">Kosmeetika</option>
+          </select>
+        </label>
+        <label>
+          <span class="sr-only">Sorteeri broneeringuid</span>
+          <select id="sortSelect">
+            <option value="date-asc">Aeg: varasem enne</option>
+            <option value="date-desc">Aeg: hilisem enne</option>
+            <option value="client">Klient: A–Z</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Klient</th>
+              <th>Teenus</th>
+              <th>Kuupäev</th>
+              <th>Kellaaeg</th>
+            </tr>
+          </thead>
+          <tbody id="bookingRows"></tbody>
+        </table>
+        <div id="statusMessage" class="status" role="status">Laadin broneeringuid…</div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <footer>© 2026 IluStuudio · Valmistatud hoolega</footer>
+  <script src="app.js"></script>
+</body>
+</html>
